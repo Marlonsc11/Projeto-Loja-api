@@ -175,6 +175,206 @@ INSERT INTO public.produtos (id, nome, descricao, preco, quantidade, imagem_url,
     'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80',
     5,
     1
+),
+(
+    11,
+    'Camiseta Boxy Manga Curta Marrom Earth',
+    'Camiseta boxy fit com gola grossa de 3,5cm, malha encorpada 240g/m² em tom terroso vintage.',
+    139.90,
+    25,
+    'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop&q=80',
+    1,
+    1
+),
+(
+    12,
+    'Camiseta Graphic Cyberpunk Tokyo',
+    'Estampa futurista em serigrafia de alta resolução, modelagem oversized unissex em algodão puro.',
+    149.90,
+    30,
+    'https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=800&auto=format&fit=crop&q=80',
+    1,
+    1
+),
+(
+    13,
+    'Camiseta Raglan Vintage Skate 90s',
+    'Design retrô com mangas bicolores contrastantes, toque peletizado macio e costuras reforçadas.',
+    129.90,
+    20,
+    'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=800&auto=format&fit=crop&q=80',
+    1,
+    1
+),
+(
+    14,
+    'Regata Streetwear Canelada Heavy Off-White',
+    'Regata masculina canelada com caimento reto estruturado, gola redonda e cavas fechadas.',
+    99.90,
+    35,
+    'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=800&auto=format&fit=crop&q=80',
+    1,
+    1
+),
+(
+    15,
+    'Calça Parachute Streetwear Baggy Khaki',
+    'Calça parachute em nylon leve ripstop, reguladores elásticos nos tornozelos e cintura com elástico.',
+    249.90,
+    18,
+    'https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?w=800&auto=format&fit=crop&q=80',
+    2,
+    1
+),
+(
+    16,
+    'Calça Jeans Wide Leg Skate Lavagem Clara',
+    'Jeans 100% algodão corte amplo baggy anos 90, barra desfeita e passantes largos para cinto.',
+    269.90,
+    22,
+    'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=800&auto=format&fit=crop&q=80',
+    2,
+    1
+),
+(
+    17,
+    'Calça Jogger Moletom Heavy Mescla',
+    'Moletom pesado peluciado com punho canelado, bolsos embutidos e cordão com ponta metálica.',
+    199.90,
+    28,
+    'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?w=800&auto=format&fit=crop&q=80',
+    2,
+    1
+),
+(
+    18,
+    'Bermuda Cargo Sarja Oversized Chumbo',
+    'Bermuda cargo com bolsos laterais fole, comprimento abaixo do joelho e tecido sarjado peletizado.',
+    169.90,
+    24,
+    'https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800&auto=format&fit=crop&q=80',
+    2,
+    1
+),
+(
+    19,
+    'Tênis Chunky Platform Runner Branco',
+    'Solado robusto em EVA expandido para amortecimento superior, cabedal em mesh respirável e couro sintético.',
+    399.90,
+    14,
+    'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=800&auto=format&fit=crop&q=80',
+    3,
+    1
+),
+(
+    20,
+    'Tênis High-Top Vintage Leather Preto/Branco',
+    'Cano alto clássico inspirado no basquete anos 80, cano acolchoado e sola de borracha antiderrapante.',
+    449.90,
+    10,
+    'https://images.unsplash.com/photo-1552346154-21d32810aba3?w=800&auto=format&fit=crop&q=80',
+    3,
+    1
+),
+(
+    21,
+    'Tênis Skate Suede Low All Black',
+    'Total black em camurça premium com palmilha anti-impacto, costura dupla e vira de borracha reforçada.',
+    329.90,
+    16,
+    'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=800&auto=format&fit=crop&q=80',
+    3,
+    1
+),
+(
+    22,
+    'Tênis Urban Retro Runner Bege/Verde',
+    'Estética dad shoe retrô com combinações de tons terrosos, detalhes refletivos e tração multidirecional.',
+    379.90,
+    12,
+    'https://images.unsplash.com/photo-1539185441755-769473a23570?w=800&auto=format&fit=crop&q=80',
+    3,
+    1
+),
+(
+    23,
+    'Moletom Crewneck Gola Careca Cinza Mescla',
+    'Moletom gola redonda clássico 3 cabos, sem felpa, caimento relaxado e punhos em ribana canelada.',
+    239.90,
+    20,
+    'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=80',
+    4,
+    1
+),
+(
+    24,
+    'Jaqueta Puffer Streetwear Térmica Preta',
+    'Isolamento térmico volumoso em fibra sintética, gola alta corta-vento e bolsos frontais com fleece.',
+    489.90,
+    15,
+    'https://images.unsplash.com/photo-1548883354-7622d03aca27?w=800&auto=format&fit=crop&q=80',
+    4,
+    1
+),
+(
+    25,
+    'Jaqueta Bomber College Bordada Verde Escuro',
+    'Estilo universitário com mangas em contraste, fechamento por botões de pressão e forro acolchoado.',
+    359.90,
+    18,
+    'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&auto=format&fit=crop&q=80',
+    4,
+    1
+),
+(
+    26,
+    'Moletom Half-Zip Anorak Street Marrom',
+    'Moletom com meio zíper frontal no peito, bolso embutido e ajuste com tanca elástica na cintura.',
+    279.90,
+    22,
+    'https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop&q=80',
+    4,
+    1
+),
+(
+    27,
+    'Bucket Hat Streetwear Dupla Face Preto/Branco',
+    'Chapéu bucket confeccionado em sarja pesada 100% algodão, aba estruturada e uso dupla face.',
+    99.90,
+    40,
+    'https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=800&auto=format&fit=crop&q=80',
+    5,
+    1
+),
+(
+    28,
+    'Touca Beanie Dobrável Acrílico Canelado Caramelo',
+    'Gorro estilo fisherman curto com dobra, malha canelada quente com alta elasticidade e conforto.',
+    69.90,
+    50,
+    'https://images.unsplash.com/photo-1618354691438-25bc04584c23?w=800&auto=format&fit=crop&q=80',
+    5,
+    1
+),
+(
+    29,
+    'Bolsa Crossbody Mini Bag Impermeável',
+    'Bolsa transversal compacta com tecido resistente à água, fivelas de liberação rápida e zíperes YKK.',
+    129.90,
+    35,
+    'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop&q=80',
+    5,
+    1
+),
+(
+    30,
+    'Cinto Tático Têxtil com Fivela de Engate Rápido',
+    'Fita de nylon balístico ultra resistente de 38mm de largura com fivela militar em liga de zinco.',
+    79.90,
+    45,
+    'https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=800&auto=format&fit=crop&q=80',
+    5,
+    1
 )
 ON CONFLICT (id) DO UPDATE 
 SET nome = EXCLUDED.nome,
