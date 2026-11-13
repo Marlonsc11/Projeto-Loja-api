@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Streetwear Store | Urban Vibes</title>
+    <!-- Fonte e Ícones CDN estável (cdnjs) sem bloqueio CORS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,900;1,800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Topo da Loja -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-accent">STREET</span>WEAR<span class="dot">.</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#catalogo-section" class="nav-item">Coleções</a>
+                <button id="cartBtn" class="cart-btn" aria-label="Abrir Carrinho">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-label">Sacola</span>
+                    <span id="cartCount" class="cart-badge">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Hero Streetwear -->
+    <section class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-tag">DROP EXCLUSIVO 2026</span>
+            <h1 class="hero-title">A AUTENTICIDADE DAS RUAS EM CADA DETALHE</h1>
+            <p class="hero-subtitle">Moda urbana de alto padrão, cortes oversize, qualidade premium e entrega direta para todo o Brasil.</p>
+            <div class="hero-actions">
+                <a href="#catalogo-section" class="btn-hero"><i class="fa-solid fa-arrow-down"></i> Ver Catálogo</a>
+                <a href="https://wa.me/5527992929034" target="_blank" class="btn-hero-wa"><i class="fa-brands fa-whatsapp"></i> Fale Conosco</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Barra de Filtros Dinâmicos Server-Side -->
+    <section class="filters-section" id="catalogo-section">
+        <div class="filters-header">
+            <span class="section-badge"><i class="fa-solid fa-sliders"></i> FILTRAR PRODUTOS</span>
+            <h2>Encontre o seu estilo</h2>
+        </div>
+        <div class="filters-container" id="filtersContainer">
+            <!-- Inputs e selects injetados dinamicamente via JS -->
+            <div class="filter-group filter-search">
+                <label for="filterSearch"><i class="fa-solid fa-magnifying-glass"></i> Buscar produto</label>
+                <input type="text" id="filterSearch" placeholder="Ex: Polo, Calça, Camiseta..." />
+            </div>
+
+            <div class="filter-group filter-select">
+                <label for="filterCategory"><i class="fa-solid fa-tag"></i> Categoria</label>
+                <select id="filterCategory">
+                    <option value="">Todas as categorias</option>
+                </select>
+            </div>
+
+            <div class="filter-group filter-price">
+                <label><i class="fa-solid fa-dollar-sign"></i> Preço (R$)</label>
+                <div class="price-inputs">
+                    <input type="number" id="filterPriceMin" placeholder="Mínimo" min="0" />
+                    <span>até</span>
+                    <input type="number" id="filterPriceMax" placeholder="Máximo" min="0" />
+                </div>
+            </div>
+
+            <div class="filter-actions">
+                <button id="btnClearFilters" class="btn-clear-filters" title="Limpar Filtros">
+                    <i class="fa-solid fa-rotate-left"></i> Limpar
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Produtos Agrupado por Categoria com Scroll Horizontal -->
+    <main class="catalog" id="catalog">
+        <div class="catalog-loading" id="catalogLoading">
+            <div class="spinner"></div>
+            <p>Carregando as melhores peças do streetwear...</p>
+        </div>
+    </main>
+
+    <!-- Modal de Detalhes do Produto (2 Colunas) -->
+    <div class="modal" id="productModal" aria-hidden="true">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Fechar Modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="modal-body-grid">
+                <!-- Coluna 1: Imagem -->
+                <div class="modal-col-img">
+                    <img id="modalImg" src="" alt="Imagem do Produto" />
+                    <span class="modal-badge-cat" id="modalCategoryBadge">Streetwear</span>
+                </div>
+
+                <!-- Coluna 2: Detalhes Completos e Ações -->
+                <div class="modal-col-details">
+                    <div class="modal-header-info">
+                        <span class="item-brand">STREETWEAR ORIGINAL</span>
+                        <h2 id="modalTitle">Nome do Produto</h2>
+                        <div class="modal-price-box">
+                            <span class="currency">R$</span>
+                            <span class="amount" id="modalPrice">0,00</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-desc-box">
+                        <h3>Descrição</h3>
+                        <p id="modalDesc">Detalhes da peça, caimento e materiais.</p>
+                    </div>
+
+                    <div class="modal-stock-info">
+                        <span class="stock-indicator in-stock">
+                            <i class="fa-solid fa-circle-check"></i> Em estoque disponível
+                        </span>
+                        <span id="modalStockQty" class="stock-qty"></span>
+                    </div>
+
+                    <div class="modal-purchase-controls">
+                        <div class="quantity-selector">
+                            <button type="button" id="btnQtyMinus" class="btn-qty">-</button>
+                            <input type="number" id="modalQty" min="1" value="1" readonly />
+                            <button type="button" id="btnQtyPlus" class="btn-qty">+</button>
+                        </div>
+                        
+                        <button id="addToCartBtn" class="btn-add-cart">
+                            <i class="fa-solid fa-bag-shopping"></i> Adicionar à Sacola
+                        </button>
+                    </div>
+
+                    <div class="modal-shipping-badge">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <div>
+                            <strong>Envio Rápido & Seguro</strong>
+                            <span>Pedido validado diretamente via WhatsApp oficial</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carrinho / Gaveta Lateral -->
+    <div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+        <div class="cart-backdrop" id="cartBackdrop"></div>
+        <div class="cart-drawer">
+            <div class="cart-header">
+                <div class="cart-title-box">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <h2>Sua Sacola</h2>
+                </div>
+                <button class="cart-close" id="cartClose" aria-label="Fechar Sacola">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="cart-items-container">
+                <ul id="cartItems" class="cart-items-list">
+                    <!-- Itens renderizados via JS -->
+                </ul>
+                <div id="cartEmptyMessage" class="cart-empty" style="display: none;">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <p>Sua sacola está vazia.</p>
+                    <span>Adicione peças autênticas para continuar!</span>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-summary-line subtotal-line">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">R$ 0,00</span>
+                </div>
+                <div class="cart-summary-line total-line">
+                    <span>Total:</span>
+                    <span id="cartTotal">R$ 0,00</span>
+                </div>
+                
+                <a href="#" id="whatsappCheckout" class="btn-checkout-wa">
+                    <i class="fa-brands fa-whatsapp"></i> Finalizar Pedido no WhatsApp
+                </a>
+                
+                <button type="button" id="btnClearCart" class="btn-clean-cart">
+                    <i class="fa-solid fa-trash-can"></i> Esvaziar sacola
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification de Adicionado ao Carrinho -->
+    <div id="toastNotification" class="toast">
+        <i class="fa-solid fa-check-circle"></i>
+        <span id="toastMessage">Produto adicionado à sacola!</span>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="logo-accent">STREET</span>WEAR<span class="dot">.</span>
+                <p>Estilo urbano autêntico. Qualidade, caimento perfeito e exclusividade em cada drop.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Atendimento Direto</h4>
+                <p><i class="fa-brands fa-whatsapp"></i> +55 (27) 99292-9034</p>
+                <p><i class="fa-solid fa-shield-halved"></i> Compra 100% Segura</p>
+                <p><i class="fa-solid fa-truck-fast"></i> Envio para todo o Brasil</p>
+            </div>
+            <div class="footer-col">
+                <h4>Horário</h4>
+                <p><i class="fa-regular fa-clock"></i> Seg a Sex: 09h às 19h</p>
+                <p><i class="fa-regular fa-clock"></i> Sábado: 09h às 14h</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Streetwear Store. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

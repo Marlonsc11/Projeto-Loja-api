@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo | Acesso Restrito</title>
+    <!-- FontAwesome CDN e Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <div class="admin-login-wrapper">
+        <div class="admin-card">
+            <div class="admin-card-header">
+                <a href="../index.html" class="logo" style="justify-content:center; margin-bottom: 0.8rem;">
+                    <span class="logo-accent">STREET</span>WEAR<span class="dot">.</span>
+                </a>
+                <span class="section-badge"><i class="fa-solid fa-shield-halved"></i> ACESSO PRIVADO</span>
+                <h2>Gestão da Loja</h2>
+                <p style="color:var(--text-muted);font-size:0.85rem;margin-top:0.3rem;">Identifique-se com suas credenciais de administrador</p>
+            </div>
+
+            <form id="adminLoginForm">
+                <div class="admin-form-group">
+                    <label for="adminEmail"><i class="fa-solid fa-envelope"></i> E-mail de Administrador</label>
+                    <input type="email" id="adminEmail" placeholder="admin@mostruario.com" required autocomplete="email" />
+                </div>
+
+                <div class="admin-form-group">
+                    <label for="adminPassword"><i class="fa-solid fa-key"></i> Senha</label>
+                    <input type="password" id="adminPassword" placeholder="••••••••" required autocomplete="current-password" />
+                </div>
+
+                <button type="submit" id="btnLoginSubmit" class="btn-admin-primary" style="margin-top:1rem;">
+                    <i class="fa-solid fa-lock-open"></i> Acessar Painel
+                </button>
+            </form>
+
+            <div id="loginFeedback" style="display:none; margin-top:1.2rem; padding:0.8rem; border-radius:var(--radius-sm); font-size:0.9rem; text-align:center;"></div>
+
+            <div style="text-align:center; margin-top:1.8rem; border-top:1px solid var(--color-border); padding-top:1.2rem;">
+                <a href="../index.html" style="color:var(--text-muted);font-size:0.85rem;display:inline-flex;align-items:center;gap:0.4rem;">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar ao Mostruário
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

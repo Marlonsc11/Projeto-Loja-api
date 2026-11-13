@@ -1,0 +1,15 @@
+{
+  "name": "projeto-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mostruário Fashion E-Commerce com API Express e Supabase",
+  "type": "module",
+  "workspaces": [
+    "api"
+  ],
+  "scripts": {
+    "build": "npm install --prefix api && node scripts/build.js",
+    "start": "npm --prefix api start",
+    "dev": "npm --prefix api run dev"
+  }
+}

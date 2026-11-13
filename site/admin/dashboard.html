@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel Administrativo | Dashboard Streetwear</title>
+    <!-- Fontes & Ícones FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Coluna Lateral (1fr) -->
+        <aside class="dashboard-sidebar">
+            <a href="../index.html" class="logo">
+                <span class="logo-accent">STREET</span>WEAR<span class="dot">.</span>
+            </a>
+
+            <!-- Info do Usuário Logado -->
+            <div class="sidebar-user-box">
+                <div class="user-avatar" id="userAvatar">A</div>
+                <div class="user-meta">
+                    <h4 id="userName">Administrador</h4>
+                    <span id="userEmail">admin@streetwear.com</span>
+                </div>
+            </div>
+
+            <!-- Seletor Ativo de Loja -->
+            <div class="sidebar-store-selector" style="margin-bottom:1.5rem;background:rgba(255,255,255,0.03);padding:0.8rem;border-radius:var(--radius-sm);border:1px solid var(--color-border);">
+                <label for="activeStoreSelect" style="display:block;font-size:0.75rem;font-weight:700;color:var(--color-accent);text-transform:uppercase;margin-bottom:0.4rem;">
+                    <i class="fa-solid fa-store"></i> Loja Ativa (ID)
+                </label>
+                <select id="activeStoreSelect" style="width:100%;background:var(--color-surface);color:var(--text-main);border:1px solid var(--color-border);padding:0.5rem;border-radius:var(--radius-sm);font-size:0.85rem;outline:none;">
+                    <!-- Preenchido dinamicamente -->
+                </select>
+            </div>
+
+            <!-- Listagem Dinâmica de Módulos (Requisito 3.B.2) -->
+            <h5 style="color:var(--text-dim);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.8rem;">
+                Módulos do Sistema
+            </h5>
+            <ul class="module-nav" id="moduleNav">
+                <!-- Preenchido via admin.js -->
+            </ul>
+
+            <button id="btnLogout" class="btn-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i> Encerrar Sessão
+            </button>
+        </aside>
+
+        <!-- Coluna Principal de Conteúdo (4fr) -->
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <div>
+                    <span class="section-badge" id="moduleBadge"><i class="fa-solid fa-cubes"></i> MÓDULO</span>
+                    <h2 id="currentModuleTitle" style="font-size:2rem;margin-top:0.2rem;">Gestão de Registros</h2>
+                    <p id="currentModuleDesc" style="color:var(--text-muted);font-size:0.9rem;">Gerencie todas as entidades mapeadas no banco de dados.</p>
+                </div>
+                <button id="btnOpenCreateModal" class="btn-hero" style="cursor:pointer;border:none;">
+                    <i class="fa-solid fa-plus"></i> Novo Registro
+                </button>
+            </div>
+
+            <!-- Feedback de ações -->
+            <div id="adminAlert" style="display:none;padding:1rem;border-radius:var(--radius-sm);margin-bottom:1.5rem;"></div>
+
+            <!-- Tabela de Registros -->
+            <div class="table-responsive">
+                <table class="data-table">
+                    <thead>
+                        <tr id="tableHeaders">
+                            <!-- Headers dinâmicos -->
+                        </tr>
+                    </thead>
+                    <tbody id="tableRows">
+                        <!-- Linhas dinâmicas -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="tableEmptyState" style="display:none;text-align:center;padding:3rem;color:var(--text-muted);">
+                <i class="fa-solid fa-folder-open" style="font-size:2.5rem;margin-bottom:0.5rem;display:block;"></i>
+                <p>Nenhum registro encontrado nesta entidade.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Dinâmico de Criação/Edição (Requisito 3.B.3) -->
+    <div class="modal" id="adminCrudModal" aria-hidden="true">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-content" style="max-width:550px;padding:2rem;">
+            <button class="modal-close" id="modalCrudClose"><i class="fa-solid fa-xmark"></i></button>
+            
+            <h2 id="modalCrudTitle" style="margin-bottom:1.5rem;font-size:1.5rem;">Criar Registro</h2>
+            
+            <form id="dynamicCrudForm">
+                <div id="dynamicFormFields">
+                    <!-- Campos gerados dinamicamente com base nas colunas da entidade -->
+                </div>
+
+                <div style="display:flex;justify-content:flex-end;gap:1rem;margin-top:2rem;">
+                    <button type="button" id="btnCancelCrud" class="btn-clear-filters">Cancelar</button>
+                    <button type="submit" id="btnSubmitCrud" class="btn-hero" style="border:none;cursor:pointer;">
+                        <i class="fa-solid fa-floppy-disk"></i> Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
